@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  ngOnInit() {
-    
+  ngAfterViewInit() {
+    this.attemptPlay();
+  }
+
+  attemptPlay() {
+    let video : HTMLVideoElement | null = document.querySelector("#background_video");
+    if(video) {
+      video.muted = true;
+      video.play();
+    }
   }
 }

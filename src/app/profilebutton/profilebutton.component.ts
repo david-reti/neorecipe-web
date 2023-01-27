@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth/auth.service';
 
 @Component({
@@ -7,5 +8,5 @@ import { AuthService } from '../_services/auth/auth.service';
   styleUrls: ['./profilebutton.component.scss']
 })
 export class ProfilebuttonComponent {
-  constructor(protected auth: AuthService) {}
+  constructor(protected auth: AuthService, protected router: Router) {}
 }

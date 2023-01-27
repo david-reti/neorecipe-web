@@ -1,4 +1,4 @@
-<a *ngIf="!this.auth.currentlySignedIn" routerLink="login" class="profile-button__login-link">
+<a *ngIf="!this.auth.currentlySignedIn && !this.router.url.includes('login')" routerLink="login" class="profile-button__login-link">
     Login
 </a>
 <a *ngIf="this.auth.currentlySignedIn" routerLink="logout" class="profile-button__login-link">
