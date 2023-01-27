@@ -1,0 +1,28 @@
+.message {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    justify-content: center;
+
+    &__content {
+        user-select: none;
+        white-space: nowrap;
+        color: white;
+        border-radius: 0.2rem;
+        width: fit-content;
+        padding: 1rem;
+    }
+}
+
+.info {
+    background-color: lightblue;
+}
+
+.warning {
+    background-color: lightyellow;
+}
+
+.error {
+    background-color: lightcoral;
+}

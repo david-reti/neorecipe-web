@@ -1,0 +1,44 @@
+<form [formGroup]="form" (submit)="attemptSignup()">
+    <div>
+        <label>
+            Username:
+            <input type="text" formControlName="username" placeholder="Username">
+        </label>
+        <p *ngIf="form.get('username')?.invalid && form.get('username')?.dirty">
+            Please enter a valid username.
+        </p>
+    </div>
+    <div>
+        <label>
+            Your Email Address:
+            <input type="email" formControlName="email" placeholder="Email">
+        </label>
+        <!-- Add message here -->
+        <p *ngIf="form.get('email')?.invalid && form.get('email')?.dirty">
+            Please enter a valid email address.
+        </p>
+    </div>
+    <div>
+        <label>
+            Password:
+            <input type="password" formControlName="password" placeholder="Password">
+        </label>
+        <p *ngIf="form.get('password')?.invalid && form.get('password')?.dirty">
+            Please enter a valid password.
+        </p>
+    </div>
+    <div>
+        <label>
+            Confirm Password:
+            <input type="password" formControlName="passwordConfirmation" placeholder="Confirm Password">
+        </label>
+        <p *ngIf="form.get('passwordConfirmation')?.invalid && form.get('passwordConfirmation')?.dirty">
+            Please enter a valid password.
+        </p>
+        <p *ngIf="form.getError('noMatch') == true">
+            Passwords need to match.
+        </p>
+    </div>
+    <button type="submit" [disabled]="form.invalid">Sign Up</button>
+</form>
+<app-longerroroutlet></app-longerroroutlet>

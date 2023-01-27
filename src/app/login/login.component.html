@@ -1,0 +1,23 @@
+<form [formGroup]="form" (submit)="attemptLogin(form)">
+    <div>
+        <label>
+            Username:
+            <input formControlName="username" placeholder="Username:" type="text">
+        </label>
+        <div *ngIf="form.get('username')?.invalid && form.get('username')?.dirty">
+            Please enter a valid user name.
+        </div>
+    </div>
+    <div>
+        <label>
+            Password:
+            <input formControlName="password" placeholder="Password:" type="password">
+        </label>
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.dirty">
+            Password must be at least 8 characters long
+        </div>
+    </div>
+    <button type="submit" [disabled]="form.invalid">Login</button>
+    <a routerLink="/signup">No account? Sign up</a>
+</form>
+<app-longerroroutlet></app-longerroroutlet>

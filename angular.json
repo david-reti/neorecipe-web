@@ -68,7 +68,8 @@
               "browserTarget": "neorecipe-web:build:production"
             },
             "development": {
-              "browserTarget": "neorecipe-web:build:development"
+              "browserTarget": "neorecipe-web:build:development",
+              "host": "127.0.0.1"
             }
           },
           "defaultConfiguration": "development"

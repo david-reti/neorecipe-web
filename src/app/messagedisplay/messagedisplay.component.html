@@ -1,0 +1,5 @@
+<div class="message">
+    <p *ngIf="message" [ngClass]="['message__content', message.messageType]" [@messageDisplay]>
+        {{ message.content }}
+    </p>
+</div>

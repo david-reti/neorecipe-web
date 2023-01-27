@@ -1,0 +1,14 @@
+<div>
+    <h4>January 23 - January 29</h4>
+    <h1>My Recipes</h1>
+    <ul *ngIf="this.recipes">
+        <li *ngFor="let recipe of this.recipes">
+            {{recipe.title}}
+        </li>
+    </ul>
+</div>
+<div>
+    <p *ngIf="this.selectedRecipe">
+        {{this.selectedRecipe.title}}
+    </p>
+</div>

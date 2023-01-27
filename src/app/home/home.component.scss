@@ -1,0 +1,63 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title {
+    font-size: 3em;
+    color: #222;
+    margin-bottom: 0.6em;
+    margin-top: 0.25em;
+}
+
+.description-section {
+    width: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 3.5rem;
+    padding: 1.6rem;
+    position: relative;
+    z-index: 10;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.app-description {
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.figure-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: inline-flex;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.signup {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    margin-top: 3.5em;
+}
+
+.signup-button {
+    font-size: 1.333em;
+    background-color: rgb(255, 180, 0);
+    padding: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: fit-content;
+    color: white;
+    border-radius: 1em;
+    font-weight: 700;
+}

@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    background-color: transparent;
+    z-index: 10;
+    position: relative;
+
+    &__title {
+        margin: 1.8rem 1rem; 
+        margin-left: 3.5rem;
+    }
+
+    &__navbar {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+
+        &__links {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: row;
+
+            &__item {
+                display: flex;
+
+                &__anchor {
+                    margin-left: 2rem;
+                    font-size: 1.2rem;
+                    color: #333;
+                }
+            }
+
+            &__profile-link {
+                text-decoration: none;
+                display: flex;
+                flex-grow: 1;
+                justify-content: flex-end;
+                margin-right: 3rem;
+            }
+        }
+    }
+}
+
+.bg_dark {
+    background-color: rgb(17, 17, 17);
+}

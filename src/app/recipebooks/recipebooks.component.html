@@ -1,0 +1,6 @@
+<form>
+    <input type="search" placeholder="Search books">
+</form>
+<div *ngFor="let book of books | async">
+    {{book.title}}
+</div>
