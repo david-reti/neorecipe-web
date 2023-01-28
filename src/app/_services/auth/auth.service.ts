@@ -53,7 +53,7 @@ export class AuthService {
 
   private handleAuthError(action: String, error: HttpErrorResponse) : Observable<any> {
     if(error.status === 0) {
-      this.messageService.sendLongError(`A client side error (status 0) occured when attempting ${action}`, `An error occured when attempting ${action} - it happened on your end, so check if you have a stable internet connection and try again.`);
+      this.messageService.sendLongError(`Oops! There was an error during ${action}`, `An error occured when attempting ${action} - it happened on your end, so check if you have a stable internet connection and try again.`);
     } else {
       if(error.error.non_field_errors) {
         this.messageService.sendLongError(`${action} error`, error.error.non_field_errors.join(','));

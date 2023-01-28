@@ -1,5 +1,5 @@
-<div>
-    <p *ngIf="toDisplay">
-        {{ toDisplay.longVersion }}
+<div *ngIf="this.display === true" class="long-error-message">
+    <p>
+        {{ this.toDisplay?.longVersion }}
     </p>
 </div>

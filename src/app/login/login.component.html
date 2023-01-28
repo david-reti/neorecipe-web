@@ -1,24 +1,21 @@
-<div class="background"></div>
-<form [formGroup]="form" (submit)="attemptLogin(form)">
-    <div>
-        <label>
-            Username:
-            <input formControlName="username" placeholder="Username:" type="text">
-        </label>
-        <div *ngIf="form.get('username')?.invalid && form.get('username')?.dirty">
+<app-background></app-background>
+<form [formGroup]="form" (submit)="attemptLogin(form)" class="form--small">
+    <h1 class="form__title">Sign In</h1>
+    <div class="form__group">
+        <label class="form__label">Username</label>
+        <input formControlName="username" placeholder="Username" type="text" class="form__input" [class.input-error]="form.get('username')?.invalid && form.get('username')?.dirty">
+        <div *ngIf="form.get('username')?.invalid && form.get('username')?.dirty" class="form-error-message">
             Please enter a valid user name.
         </div>
     </div>
-    <div>
-        <label>
-            Password:
-            <input formControlName="password" placeholder="Password:" type="password">
-        </label>
-        <div *ngIf="form.get('password')?.invalid && form.get('password')?.dirty">
+    <div class="form__group">
+        <label class="form__label">Password</label>
+        <input formControlName="password" placeholder="Password" type="password" class="form__input" [class.input-error]="form.get('password')?.invalid && form.get('password')?.dirty">
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="form-error-message">
             Password must be at least 8 characters long
         </div>
     </div>
-    <button type="submit" [disabled]="form.invalid">Login</button>
-    <a routerLink="/signup">No account? Sign up</a>
+    <button type="submit" [disabled]="form.invalid" class="form__submit">Login</button>
+    <a routerLink="/signup" class="form__link">No account? Sign up</a>
+    <app-longerroroutlet></app-longerroroutlet>
 </form>
-<app-longerroroutlet></app-longerroroutlet>

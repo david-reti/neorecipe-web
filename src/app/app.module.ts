@@ -23,6 +23,7 @@ import { NeorecipeTitleStrategy } from './_util/titleStrategy';
 import { TitleStrategy } from '@angular/router';
 import { AuthInterceptor } from './_util/authInterceptor';
 import { ActivateComponent } from './activate/activate.component';
+import { BackgroundComponent } from './background/background.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ActivateComponent } from './activate/activate.component';
     SignupComponent,
     LongerroroutletComponent,
     LogoutComponent,
-    ActivateComponent
+    ActivateComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,

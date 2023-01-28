@@ -1,11 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
 
-$primary:#aaa;
-
 body {
     margin: 0;
 }
 
 a {
     text-decoration: none;
+}
+
+.form--small {
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    width: fit-content;
+    margin: auto;
+    padding: 1.33334rem;
+    margin-top: 3rem;
+    border-radius: 1rem;
+}
+
+.form__title {
+    margin-top: 0;
+    color: #222;
+    font-family: 'Lora', serif;
+    margin-bottom: 1em;
+    font-size: 2.4rem;
+}
+
+.form__input {
+    display: block;
+    border: 0.1rem solid rgb(17, 17, 17);
+    font-size: 1rem;
+    padding: 1rem;
+    padding-right: 6rem;
+    border-radius: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form__label {
+    display:none;
+}
+
+.form__submit {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 1rem;
+    border-style: none;
+    color: white;
+    font-weight: 700;
+    background-color: #ffb400;
+    transition: background-color 0.2s;
+}
+
+.form__submit:disabled {
+    background-color: #999;
+}
+
+.form__submit:hover {
+    background-color: #ffc333;
+    cursor: pointer;
+}
+
+.form__submit:disabled:hover {
+    background-color: #999;
+    cursor: auto;
+}
+
+.form__group {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form__link {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    font-family: 'Lora', serif;
+    color: purple;
+    padding-top: 1rem;
+}
+
+.input-error {
+    border-color: #fc2e1c;
+}
+
+.form-error-message {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0.25rem;
+    font-size: 0.825em;
+    color: #fc2e1c;
+    margin-left: 0.5rem;
+}
+
+app-longerroroutlet {
+    display: block;
+    max-width: 18rem;
+    margin: auto;
 }
