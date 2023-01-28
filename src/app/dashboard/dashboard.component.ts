@@ -22,4 +22,9 @@ export class DashboardComponent {
       }
     });
   }
+
+  getWeek() {
+    const currentDate : Date = new Date();
+    currentDate.getDate();
+  }
 }

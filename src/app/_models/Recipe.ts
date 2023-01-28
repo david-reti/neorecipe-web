@@ -1,12 +1,18 @@
 import { RecipeBook } from "./RecipeBook";
-import { Ingredient } from "./Ingredient";
+import { RecipeIngredient } from "./Ingredient";
+
+export interface RecipeStep {
+    step_number: number;
+    description: string;
+}
 
 export interface Recipe {
     slug: string;
     title: string;
     page: number | null;
     serves: number | null;
-    ingredients: Ingredient[];
+    steps: RecipeStep[];
+    ingredients: RecipeIngredient[];
     description: string;
     source: RecipeBook | null;
     book_section: number | null;

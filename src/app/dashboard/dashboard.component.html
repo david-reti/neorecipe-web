@@ -1,14 +1,36 @@
-<div>
-    <h4>January 23 - January 29</h4>
-    <h1>My Recipes</h1>
-    <ul *ngIf="this.recipes">
-        <li *ngFor="let recipe of this.recipes">
-            {{recipe.title}}
-        </li>
-    </ul>
-</div>
-<div>
-    <p *ngIf="this.selectedRecipe">
-        {{this.selectedRecipe.title}}
-    </p>
+<app-background></app-background>
+<div class="container">
+    <section class="dashboard__recipe-list">
+        <div class="dashboard-recipe-list__title">
+            <h4 class="dashboard__week-indicator">January 23 - January 29</h4>
+            <h1 class="dashboard__title">My Recipes</h1>
+        </div>
+        <ul *ngIf="this.recipes" class="dashboard-recipe-list__list">
+            <li *ngFor="let recipe of this.recipes" class="dashboard__recipe-item">
+                <h5 class="dashboard-recipe-list__recipe-title">{{recipe.title}}</h5>
+                <p *ngIf="recipe.serves" class="dashboard-recipe-list__recipe-serves">Serves {{recipe.serves}}</p>
+            </li>
+        </ul>
+    </section>
+    <section class="dashboard__selected-recipe" *ngIf="this.selectedRecipe">
+        <h4 class="recipe-title">{{this.selectedRecipe.title}}</h4>
+        <p *ngIf="this.selectedRecipe.source" class="recipe-source">From {{this.selectedRecipe.source}}</p>
+        <p class="selected-recipe-description">{{this.selectedRecipe.description}}</p>
+        <div class="selected-recipe-ingredients">
+            <h5 class="selected-recipe-header">Ingredients</h5>
+            <div class="ingredients-container">
+                <div *ngFor="let ingredient of this.selectedRecipe.ingredients" class="recipe-ingredient">
+                    {{ingredient.amount | number: '1.0-2'}} {{ingredient.amount_unit}} {{ingredient.ingredient.name}}{{ingredient.preparation && ", " + ingredient.preparation}}
+                </div>
+            </div>
+        </div>
+        <div class="selected-recipe-steps">
+            <h5 class="selected-recipe-header">Steps</h5>
+            <ol>
+                <li class="recipe-step" *ngFor="let step of this.selectedRecipe.steps">
+                    {{ step.description }}
+                </li>
+            </ol>
+        </div>
+    </section>
 </div>

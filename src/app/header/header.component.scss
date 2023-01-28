@@ -2,7 +2,7 @@
     display: flex;
     background-color: transparent;
     z-index: 10;
-    position: relative;
+    position: sticky;
 
     &__title {
         margin: 1rem; 
@@ -23,9 +23,13 @@
                 display: flex;
 
                 &__anchor {
+                    font-family: 'Montserrat', sans-serif;
                     margin-left: 2rem;
-                    font-size: 1.2rem;
-                    color: #333;
+                    color: white;
+                }
+
+                &__anchor:hover {
+                    border-bottom: 0.1rem solid white;
                 }
             }
 

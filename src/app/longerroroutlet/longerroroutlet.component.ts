@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivationEnd, EventType, NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { filter, last, Observable, of, Subscription } from 'rxjs';
 import Message from '../_models/Message';
-import { AuthService } from '../_services/auth/auth.service';
 import { MessageService } from '../_services/message/message.service';
 
 @Component({
@@ -16,8 +15,6 @@ export class LongerroroutletComponent {
   messages$: Subscription | null = null;
 
   ngOnInit() {
-    this.clear();
-
     this.messages$ = this.messageService.getMessages().pipe(
       filter(message => message && message.longVersion?.length > 0 ),
     ).subscribe(value => {
@@ -28,6 +25,8 @@ export class LongerroroutletComponent {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
     ).subscribe(event => this.clear());
+
+    this.clear();
   }
 
   clear() {
