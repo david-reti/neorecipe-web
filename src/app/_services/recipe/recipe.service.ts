@@ -31,4 +31,8 @@ export class RecipeService {
     }
     return this.recommendedRecipes$.asObservable();
   }
+
+  regenerateRecommendedRecipes() {
+    this.messageService.sendInfo('It will take some time for new recipes to be found for you - check back in a few minutes!');
+  }
 }

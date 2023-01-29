@@ -24,6 +24,7 @@ import { TitleStrategy } from '@angular/router';
 import { AuthInterceptor } from './_util/authInterceptor';
 import { ActivateComponent } from './activate/activate.component';
 import { BackgroundComponent } from './background/background.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { BackgroundComponent } from './background/background.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [
     {

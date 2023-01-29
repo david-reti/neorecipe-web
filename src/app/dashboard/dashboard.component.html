@@ -2,8 +2,17 @@
 <div class="container">
     <section class="dashboard__recipe-list">
         <div class="dashboard-recipe-list__title">
-            <h4 class="dashboard__week-indicator">January 23 - January 29</h4>
-            <h1 class="dashboard__title">My Recipes</h1>
+            <h1 class="dashboard__title">
+                My Recipes
+                <button class="dashboard__refresh-recipes" (click)="refreshRecipes()">
+                    <fa-icon [icon]="faRotate"></fa-icon>
+                    <div class="dashboard__refresh-tooltip">
+                        <div class="tooltip-background"></div>
+                        <p class="tooltip-text">Refresh Recommended Recipes</p>
+                    </div>
+                </button>
+            </h1>
+            <h4 class="dashboard__week-indicator">{{getWeek()}}</h4>
         </div>
         <ul *ngIf="this.recipes" class="dashboard-recipe-list__list">
             <li *ngFor="let recipe of this.recipes" class="dashboard__recipe-item">
