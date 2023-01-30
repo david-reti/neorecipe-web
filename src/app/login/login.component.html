@@ -15,7 +15,10 @@
             Password must be at least 8 characters long
         </div>
     </div>
-    <button type="submit" [disabled]="form.invalid" class="form__submit">Login</button>
+    <button type="submit" [disabled]="form.invalid" class="form__submit">
+        <app-loadingicon *ngIf="this.loading"></app-loadingicon>
+        <p *ngIf="!this.loading">Login</p>
+    </button>
     <a routerLink="/signup" class="form__link">No account? Sign up</a>
     <app-longerroroutlet></app-longerroroutlet>
 </form>

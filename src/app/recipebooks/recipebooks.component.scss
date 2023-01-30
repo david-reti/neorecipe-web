@@ -1,0 +1,99 @@
+.book-search {
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-input {
+    width: 80%;
+}
+
+.search-input-with-category {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.search-category-input {
+    margin: 0;
+    width: 20%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+    padding-right: 1rem;
+    text-align: center;
+}
+
+.search-category-input option {
+}
+
+.book-results {
+   margin-top: 2rem;
+   max-height: 50vh;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.book-display {
+    width: 100%;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to top right, #d2f7dc, #f0d5d5);
+}
+
+.book-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    margin-left: 0.8em;
+    font-weight: 700;
+    margin-bottom: 0.1em;
+}
+
+.top-section {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    width: calc(65vw + (1.3334rem * 2));
+    margin-left: 18vw;
+    align-items: center;
+}
+
+.create-link {
+    background-color: #ffb400;
+    border-radius: 1rem;
+    color: white;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    padding: 0.8em;
+    margin: 0;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.create-link:hover {
+    background-color: #ffc333;
+}
+
+.book-publisher {
+    margin-left: 1rem;
+    margin-top: 0;
+    font-family: 'Lora', serif;
+    font-size: 0.9em;
+    color: #222;
+}
+
+.book-category {
+    margin-left: 1rem;
+    font-family: 'Lora', serif;
+    color: #555;
+}
+
+.book-purchase-link {
+    font-size: 1.8em;
+    color: #222;
+}

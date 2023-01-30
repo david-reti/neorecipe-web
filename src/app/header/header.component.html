@@ -24,11 +24,11 @@
                 <a class="header__navbar__links__item__anchor" routerLink="recipes" ariaCurrentWhenActive="page">Recipes</a>
             </li>
             <li *ngIf="auth.currentlySignedIn" class="header__navbar__links__item">
-                <a class="header__navbar__links__item__anchor" routerLink="stores" ariaCurrentWhenActive="page">Pantry</a>
+                <a class="header__navbar__links__item__anchor" routerLink="pantry" ariaCurrentWhenActive="page">Pantry</a>
             </li>
-            <li *ngIf="auth.currentlySignedIn" class="header__navbar__links__item">
+            <!-- <li *ngIf="auth.currentlySignedIn" class="header__navbar__links__item">
                 <a class="header__navbar__links__item__anchor" routerLink="stores" ariaCurrentWhenActive="page">Stores</a>
-            </li>
+            </li> -->
             <li class="header__navbar__links__profile-link">
                 <app-profilebutton></app-profilebutton>
             </li>

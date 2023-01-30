@@ -16,5 +16,6 @@ export interface Recipe {
     description: string;
     source: RecipeBook | null;
     book_section: number | null;
+    preparation_time: string;
     estimated_total_price: number | null;
 }

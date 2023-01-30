@@ -1,6 +1,30 @@
-<form>
-    <input type="search" placeholder="Search books">
-</form>
-<div *ngFor="let book of books | async">
-    {{book.title}}
-</div>
+<app-background></app-background>
+<section class="top-section">
+    <h1 class="section-title white">Recipe Books</h1>
+    <a class="create-link" routerLink="create">
+        Add Book
+    </a>
+</section>
+<section class="form--large" style="margin-top: 0;">
+    <form class="book-search">
+        <input class="form__input search-input search-input-with-category" type="search" placeholder="Search books">
+        <select class="form__input search-category-input">
+            <option>All Categories</option>
+            <option>French</option>
+        </select>
+    </form>
+    <section class="book-results">
+        <a *ngFor="let book of books | async" class="book-display" routerLink="{{book.slug}}">
+            <div style="max-width:80%">
+                <h5 class="book-title">{{book.title}}</h5>
+                <p class="book-publisher">{{book.publisher}}</p>
+                <p class="book-category">{{book.category}}</p>
+            </div>
+            <div style="width: 20%; display: flex; align-items: center;">
+                <a class="book-purchase-link" href="books/{{book.slug}}/get">
+                    <fa-icon [icon]="faCartPlus"></fa-icon>
+                </a> 
+            </div>   
+        </a>
+    </section>
+</section>

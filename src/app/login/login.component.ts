@@ -9,6 +9,7 @@ import { AuthService } from '../_services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loading = false;
   form!: FormGroup;
   errorMessage: String = "";
 
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   attemptLogin(formGroup: FormGroup) {
+    this.loading = true;
     this.authService.login(formGroup.get('username')?.value, formGroup.get('password')?.value);
   }
 }

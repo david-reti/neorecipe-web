@@ -9,8 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './_services/auth/auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { LogoutComponent } from './logout/logout.component';
-import { Title } from '@angular/platform-browser';
 import { ActivateComponent } from './activate/activate.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { PantryComponent } from './pantry/pantry.component';
+import { BookcreateComponent } from './bookcreate/bookcreate.component';
 
 const OnlyWhenLoggedIn: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const router = inject(Router);
@@ -29,6 +31,9 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent, title: 'Logout'},
   {path: 'signup', component: SignupComponent, title: 'Signup'},
   {path: 'activate', component: ActivateComponent, title: 'Activate'},
+  {path: 'recipes', component: RecipesComponent, canActivate: [OnlyWhenLoggedIn], title: 'Recipes'},
+  {path: 'pantry', component: PantryComponent, canActivate: [OnlyWhenLoggedIn], title: 'Pantry'},
+  {path: 'books/create', component: BookcreateComponent, canActivate: [OnlyWhenLoggedIn], title: 'Create Book'},
   {path: 'books', component: RecipebooksComponent, canActivate: [OnlyWhenLoggedIn], title: 'Books'},
   {path: 'dashboard', component: DashboardComponent, canActivate: [OnlyWhenLoggedIn], title: 'Dashboard'},
 ];

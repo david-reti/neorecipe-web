@@ -12,7 +12,7 @@
     z-index: 11;
     border-radius: 1rem;
     margin-top: 0.75rem;
-    margin-left: 0.75rem;
+    margin-left: 1.4rem;
     padding-bottom: 0;
     height: fit-content;
     max-height: 78vh;
@@ -69,10 +69,20 @@
 
 .dashboard-recipe-list__recipe-serves {
     margin-bottom: 0;
+    margin-top: 0;
     text-align: right;
     font-style: italic;
     font-family: 'Lora', serif;
+    color: #333;
     font-size: 0.85em;
+}
+
+.dashboard-recipe-list__preparation-time {
+    margin-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    font-size: 1.2em;
+    margin-top: 0;
 }
 
 .dashboard__selected-recipe {
@@ -87,7 +97,7 @@
     padding-left: 2.4rem;
     padding-right: 2.4rem;
     margin-top: 0.75rem;
-    margin-left: 2rem;
+    margin-left: 1.4rem;
     max-width: 60%;
     max-height: 78vh;
     overflow-y: auto;

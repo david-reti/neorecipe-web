@@ -25,6 +25,10 @@ import { AuthInterceptor } from './_util/authInterceptor';
 import { ActivateComponent } from './activate/activate.component';
 import { BackgroundComponent } from './background/background.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoadingiconComponent } from './loadingicon/loadingicon.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { PantryComponent } from './pantry/pantry.component';
+import { BookcreateComponent } from './bookcreate/bookcreate.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LongerroroutletComponent,
     LogoutComponent,
     ActivateComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    LoadingiconComponent,
+    RecipesComponent,
+    PantryComponent,
+    BookcreateComponent
   ],
   imports: [
     BrowserModule,

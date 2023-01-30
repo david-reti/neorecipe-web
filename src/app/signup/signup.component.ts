@@ -11,6 +11,7 @@ import FieldMatchValidator from '../_util/fieldMatchValidator';
 })
 export class SignupComponent {
   form!: FormGroup;
+  loading = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {}
 
@@ -24,6 +25,7 @@ export class SignupComponent {
   }
 
   attemptSignup() {
+    this.loading = true;
     this.authService.signup(this.form.get('username')?.value,
                             this.form.get('email')?.value, 
                             this.form.get('password')?.value, 
