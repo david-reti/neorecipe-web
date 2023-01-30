@@ -5,14 +5,33 @@
         <label class="form__label">Username</label>
         <input formControlName="username" placeholder="Username" type="text" class="form__input" [class.input-error]="form.get('username')?.invalid && form.get('username')?.dirty">
         <div *ngIf="form.get('username')?.invalid && form.get('username')?.dirty" class="form-error-message">
-            Please enter a valid user name.
+            <p *ngIf="form.get('username')?.errors!['required']">
+                Username is required.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['minlength']">
+                Username must be at least 3 characters long.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['maxlength']">
+                Username must be shorter than 65 characters.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['nospecialcharacters']">
+                Username cannot contain special characters.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['profanity']">
+                Username cannot contain profanity.
+            </p>
         </div>
     </div>
     <div class="form__group">
         <label class="form__label">Password</label>
         <input formControlName="password" placeholder="Password" type="password" class="form__input" [class.input-error]="form.get('password')?.invalid && form.get('password')?.dirty">
         <div *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="form-error-message">
-            Password must be at least 8 characters long
+            <p *ngIf="form.get('password')?.errors!['required']">
+                Password is required.
+            </p>
+            <p *ngIf="form.get('password')?.errors!['minlength']">
+                Password must be at least 8 characters long.
+            </p>
         </div>
     </div>
     <button type="submit" [disabled]="form.invalid" class="form__submit">

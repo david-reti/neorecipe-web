@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../_services/auth/auth.service';
+import ValiateAgainstBadWords from '../_util/badWordValidator';
+import NoSpecialCharacterValidator from '../_util/noSpecialCharacerValidator';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(64), NoSpecialCharacterValidator(), ValiateAgainstBadWords()]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }

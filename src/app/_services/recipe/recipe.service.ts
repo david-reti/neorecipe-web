@@ -33,6 +33,6 @@ export class RecipeService {
   }
 
   regenerateRecommendedRecipes() {
-    this.messageService.sendInfo('It will take some time for new recipes to be found for you - check back in a few minutes!');
+    this.messageService.sendInfo('It will take some time for new recipes to be recommended for you - check back in a few minutes!');
   }
 }

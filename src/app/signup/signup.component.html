@@ -3,28 +3,69 @@
     <h1 class="form__title">Sign Up</h1>
     <div class="form__group">
         <input type="text" formControlName="username" placeholder="Username" class="form__input" [class.input-error]="form.get('username')?.invalid && form.get('username')?.dirty">
-        <p *ngIf="form.get('username')?.invalid && form.get('username')?.dirty" class="form-error-message">
-            Please enter a valid username.
-        </p>
+        <div *ngIf="form.get('username')?.invalid && form.get('username')?.dirty" class="form-error-message">
+            <p *ngIf="form.get('username')?.errors!['required']">
+                Username is required.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['minlength']">
+                Username must be at least 3 characters long.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['maxlength']">
+                Username must be shorter than 65 characters.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['nospecialcharacters']">
+                Username cannot contain special characters.
+            </p>
+            <p *ngIf="form.get('username')?.errors!['profanity']">
+                Username cannot contain profanity.
+            </p>
+        </div>
     </div>
     <div class="form__group">
         <input type="email" formControlName="email" placeholder="Email" class="form__input" [class.input-error]="form.get('email')?.invalid && form.get('email')?.dirty">
-        <p *ngIf="form.get('email')?.invalid && form.get('email')?.dirty" class="form-error-message">
-            Please enter a valid email address.
-        </p>
+        <div *ngIf="form.get('email')?.invalid && form.get('email')?.dirty" class="form-error-message">
+            <p *ngIf="form.get('email')?.errors!['required']">
+                Email address is required.
+            </p>
+            <p *ngIf="form.get('email')?.errors!['email']">
+                Please enter a valid email address.
+            </p>
+        </div>
     </div>
     <div class="form__group">
-        <input type="password" formControlName="password" placeholder="Password" class="form__input" [class.input-error]="form.get('password')?.invalid && form.get('password')?.dirty">
-        <p *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="form-error-message">
-            Please enter a valid password.
-        </p>
+        <input type="password" formControlName="password" placeholder="Password" class="form__input" [class.input-error]="(form.get('password')?.invalid && form.get('password')?.dirty) || form.getError('noMatch')">
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="form-error-message">
+            <p *ngIf="form.get('password')?.errors!['required']">
+                Password is required.
+            </p>
+            <p *ngIf="form.get('password')?.errors!['minlength']">
+                Password must be at least 8 characters long.
+            </p>
+            <p *ngIf="form.get('password')?.errors!['numeric']">
+                Password must not be entirely numeric.
+            </p>
+            <p *ngIf="form.getError('containsfield')">
+                Password cannot contain the username.
+            </p>
+        </div> 
     </div>
     <div class="form__group">
-        <input type="password" formControlName="passwordConfirmation" placeholder="Confirm Password" class="form__input" [class.input-error]="form.get('passwordConfirmation')?.invalid && form.get('passwordConfirmation')?.dirty">
-        <p *ngIf="form.get('passwordConfirmation')?.invalid && form.get('passwordConfirmation')?.dirty" class="form-error-message">
-            Please enter a valid password.
-        </p>
-        <p *ngIf="form.getError('noMatch') == true" class="form-error-message">
+        <input type="password" formControlName="passwordConfirmation" placeholder="Confirm Password" class="form__input" [class.input-error]="(form.get('passwordConfirmation')?.invalid && form.get('passwordConfirmation')?.dirty) || form.getError('noMatch')">
+        <div *ngIf="form.get('passwordConfirmation')?.invalid && form.get('passwordConfirmation')?.dirty" class="form-error-message">
+            <p *ngIf="form.get('passwordConfirmation')?.errors!['required']">
+                Password is required.
+            </p>
+            <p *ngIf="form.get('passwordConfirmation')?.errors!['minlength']">
+                Password must be at least 8 characters long.
+            </p>
+            <p *ngIf="form.get('passwordConfirmation')?.errors!['numeric']">
+                Password must not be entirely numeric.
+            </p>
+            <p *ngIf="form.getError('containsfield')">
+                Password cannot contain the username.
+            </p>
+        </div>
+        <p *ngIf="form.getError('noMatch')" class="form-error-message">
             Passwords need to match.
         </p>
     </div>

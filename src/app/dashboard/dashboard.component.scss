@@ -177,6 +177,15 @@
     font-size: 1.6em;
 }
 
+.dashboard__refresh-recipes {
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+
+.dashboard__refresh-recipes:hover {
+    transform: rotate(180deg);
+}
+
 .dashboard__refresh-recipes:hover {
     cursor: pointer;
 }
