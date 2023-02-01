@@ -29,6 +29,20 @@ a {
     padding: 1.33334rem;
     margin-top: 3rem;
     border-radius: 1rem;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.section {
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    width: 70vw;
+    margin: auto;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 .form__title {
@@ -62,10 +76,36 @@ a {
     padding-right: 6rem;
     border-radius: 1rem;
     font-family: 'Montserrat', sans-serif;
+    max-height: 3.5rem;
+}
+
+.form__input[type="checkbox"] {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex-grow: 0;
+    cursor: pointer;
 }
 
 .form__label {
     display:none;
+}
+
+.form__label--light {
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    margin: 0;
+    display: inline-block;
+}
+
+.form__description {
+    font-family: 'Lora', serif;
+    color: #222;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 0.2rem;
 }
 
 .form__submit {
@@ -78,12 +118,20 @@ a {
     transition: background-color 0.2s;
 }
 
-.form__submit > p {
+.form__submit > p, .form__submit__text {
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-weight: 700;
     font-size: 1.2rem;
     margin: 0;
+}
+
+.form__submit--small {
+    width: max-content;
+    margin-left: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 1rem;
 }
 
 .form__submit:disabled {
@@ -103,6 +151,17 @@ a {
 .form__group {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.form__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.form__row > * {
+    flex-grow: 1;
 }
 
 .form__link {
@@ -130,4 +189,43 @@ app-longerroroutlet {
     display: block;
     max-width: 18rem;
     margin: auto;
+}
+
+.create-link, .back-link {
+    background-color: #ffb400;
+    border-radius: 1rem;
+    color: white;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    padding: 0.8em;
+    margin: 0;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.create-link:hover {
+    background-color: #ffc333;
+}
+
+.back-link {
+    background-color: #999;
+    display: inline-block;
+    font-weight: 400;
+}
+
+.back-link:hover {
+    background-color: #bbb;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.no-top-margin {
+    margin-top: 0;
+}
+
+.small-top-margin {
+    margin-top: 1.6rem;
 }

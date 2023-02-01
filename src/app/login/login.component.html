@@ -2,8 +2,8 @@
 <form [formGroup]="form" (submit)="attemptLogin(form)" class="form--small">
     <h1 class="form__title">Sign In</h1>
     <div class="form__group">
-        <label class="form__label">Username</label>
-        <input formControlName="username" placeholder="Username" type="text" class="form__input" [class.input-error]="form.get('username')?.invalid && form.get('username')?.dirty">
+        <label for="username" class="form__label">Username</label>
+        <input id="username" formControlName="username" placeholder="Username" type="text" class="form__input" [class.input-error]="form.get('username')?.invalid && form.get('username')?.dirty">
         <div *ngIf="form.get('username')?.invalid && form.get('username')?.dirty" class="form-error-message">
             <p *ngIf="form.get('username')?.errors!['required']">
                 Username is required.
@@ -23,8 +23,8 @@
         </div>
     </div>
     <div class="form__group">
-        <label class="form__label">Password</label>
-        <input formControlName="password" placeholder="Password" type="password" class="form__input" [class.input-error]="form.get('password')?.invalid && form.get('password')?.dirty">
+        <label class="form__label" for="password">Password</label>
+        <input id="password" formControlName="password" placeholder="Password" type="password" class="form__input" [class.input-error]="form.get('password')?.invalid && form.get('password')?.dirty">
         <div *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="form-error-message">
             <p *ngIf="form.get('password')?.errors!['required']">
                 Password is required.

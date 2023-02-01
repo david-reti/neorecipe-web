@@ -29,6 +29,7 @@ import { LoadingiconComponent } from './loadingicon/loadingicon.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { PantryComponent } from './pantry/pantry.component';
 import { BookcreateComponent } from './bookcreate/bookcreate.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { BookcreateComponent } from './bookcreate/bookcreate.component';
     LoadingiconComponent,
     RecipesComponent,
     PantryComponent,
-    BookcreateComponent
+    BookcreateComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,

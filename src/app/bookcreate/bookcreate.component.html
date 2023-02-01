@@ -1,1 +1,38 @@
 <app-background></app-background>
+<section>
+    <form [formGroup]="form" (submit)="attemptBookCreation()" class="form--large">
+        <h4 class="section-title no-top-margin">Create Book</h4>
+        <div class="form__row">
+            <input type="text" formControlName="title" placeholder="Title" class="form__input">
+        </div>
+        <div class="form__row">
+            <input type="text" formControlName="isbn" placeholder="ISBN (Optional)" class="form__input">
+            <input type="text" formControlName="publisher" placeholder="Publisher (Optional)" class="form__input">
+            <div class="column">
+                <label for="publicationDate" class="form__label--light">Publication Date (Optional):</label>
+                <input id="publicationDate" formControlName="publicationDate" type="date" class="form__input">
+            </div>
+        </div>
+        <div class="form__row small-top-margin">
+            <select formControlName="category" class="form__input">
+                <option>Select Category</option>
+                <option>French</option>
+                <option>Other</option>
+            </select>
+        <!-- Authors -->
+        <!-- Style -->
+            <div class="form__row">
+                <div>
+                    <label class="form__label--light">Public:</label>
+                    <p class="form__description">Public books are only visible to others after being approved.</p>
+                </div>
+                <input type="checkbox" class="form__input">
+            </div>
+        </div>
+        <div style="display: flex;">
+            <a routerLink="/books" class="back-link" style="display: inline-block; height: fit-content; margin-top: auto;">Cancel</a>
+            <input [disabled]="form.invalid" type="submit" value="Create Book" class="form__submit form__submit__text form__submit--small" style="display: inline-block;">
+        </div>
+        <app-longerroroutlet></app-longerroroutlet>
+    </form>
+</section>

@@ -13,6 +13,7 @@ import { ActivateComponent } from './activate/activate.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { PantryComponent } from './pantry/pantry.component';
 import { BookcreateComponent } from './bookcreate/bookcreate.component';
+import { BookComponent } from './book/book.component';
 
 const OnlyWhenLoggedIn: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const router = inject(Router);
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'recipes', component: RecipesComponent, canActivate: [OnlyWhenLoggedIn], title: 'Recipes'},
   {path: 'pantry', component: PantryComponent, canActivate: [OnlyWhenLoggedIn], title: 'Pantry'},
   {path: 'books/create', component: BookcreateComponent, canActivate: [OnlyWhenLoggedIn], title: 'Create Book'},
+  {path: 'books/:slug', component: BookComponent, canActivate: [OnlyWhenLoggedIn], title: 'Book'},
   {path: 'books', component: RecipebooksComponent, canActivate: [OnlyWhenLoggedIn], title: 'Books'},
   {path: 'dashboard', component: DashboardComponent, canActivate: [OnlyWhenLoggedIn], title: 'Dashboard'},
 ];
