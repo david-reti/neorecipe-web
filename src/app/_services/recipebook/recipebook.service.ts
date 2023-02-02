@@ -4,6 +4,7 @@ import { RecipeBook, RecipeBookData } from '../../_models/RecipeBook';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BACKEND_URLS } from '../../urls';
 import { MessageService } from '../message/message.service';
+import { Recipe } from 'src/app/_models/Recipe';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,12 @@ export class RecipebookService {
       }),
       map(response => response.results),
       catchError((error, _) => this.handleError(error, _)), 
+    );
+  }
+
+  getSingleBook(slug: string) : Observable<RecipeBook> {
+    return this.http.get<RecipeBook>(BACKEND_URLS.SINGLE_RECIPE_BOOK.replace('${slug}', slug)).pipe(
+      catchError((error, _) => this.handleError(error, _)),
     );
   }
 

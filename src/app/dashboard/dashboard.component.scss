@@ -110,13 +110,6 @@
     margin-top: 0.5em;
 }
 
-.selected-recipe-description {
-    font-family: 'Montserrat', sans-serif;
-    color: #444;
-    line-height: 1.4;
-    max-width: 75%;
-}
-
 .recipe-ingredient {
     text-transform: capitalize;
     border-radius: 1rem;
@@ -135,33 +128,12 @@
     background-color: #EEE;
 }
 
-.selected-recipe-header {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4em;
-    margin-bottom: 0.75em;
-}
-
-.recipe-source {
-    margin-top: 0;
-    font-family: 'Lora', serif;
-    color: #333;
-    font-style: italic;
-}
-
 .ingredients-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.recipe-step {
-    font-family: 'Lora', serif;
-    line-height: 1.6;
-    margin-bottom: 1em;
-    border-radius: 1rem;
-    padding: 0.5em;
-}
-
-.recipe-step:hover {
+.list-item:hover {
     background-color: #DDD;
     box-shadow: 0.2em 0.2em 0.1em #BBB inset;
     cursor: pointer;

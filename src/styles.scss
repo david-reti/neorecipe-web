@@ -43,6 +43,7 @@ a {
     margin-top: 3rem;
     max-height: 70vh;
     overflow-y: auto;
+    padding: 1.33334rem;
 }
 
 .form__title {
@@ -191,7 +192,7 @@ app-longerroroutlet {
     margin: auto;
 }
 
-.create-link, .back-link {
+.create-link, .edit-link, .back-link, .delete-button {
     background-color: #ffb400;
     border-radius: 1rem;
     color: white;
@@ -207,14 +208,29 @@ app-longerroroutlet {
     background-color: #ffc333;
 }
 
-.back-link {
+.back-link, .edit-link, .delete-button {
     background-color: #999;
     display: inline-block;
     font-weight: 400;
 }
 
-.back-link:hover {
+.back-link:hover, .edit-link:hover {
     background-color: #bbb;
+}
+
+.edit-link {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.delete-button {
+    background-color: #de0000;
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.delete-button:hover {
+    background-color: #ff1b00;
 }
 
 .column {
@@ -228,4 +244,75 @@ app-longerroroutlet {
 
 .small-top-margin {
     margin-top: 1.6rem;
+}
+
+.small-left-margin {
+    margin-left: 0.8rem;
+}
+
+.horizontal-pad {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+}
+
+.side-title {
+    display: inline-block;
+    font-family: 'Monsterrat', sans-serif;
+    color: #999;
+    font-size: 1.35em;
+    margin-left: 0.8rem;
+}
+
+.description {
+    font-family: 'Montserrat', sans-serif;
+    color: #444;
+    line-height: 1.4;
+    max-width: 75%;
+}
+
+.undertitle {
+    margin-top: 0;
+    font-family: 'Lora', serif;
+    color: #333;
+    font-style: italic;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0 !important;
+}
+
+.small-bottom-margin {
+    margin-bottom: 0.2rem !important;
+}
+
+.list-item, .small-text {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    margin-bottom: 1em;
+    border-radius: 1rem;
+    padding: 0.5em;
+}
+
+.small-text {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 0.8em;
+}
+
+.no-top-padding {
+    padding-top: 0 !important;
+}
+
+.no-bottom-padding {
+    padding-bottom: 0 !important;
+}
+
+.list-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 0.75em;
+}
+
+.text-right {
+    text-align: right;
 }

@@ -4,7 +4,11 @@ export interface RecipeBook {
     isbn: number;
     category: string;
     publisher?: string;
-    authors: [];
+    publication_date?: string;
+    sections: string[];
+    description: string;
+    publicly_accessible: boolean;
+    contributors: [];
 }
 
 export interface RecipeBookData {
