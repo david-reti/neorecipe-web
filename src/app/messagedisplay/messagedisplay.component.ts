@@ -31,9 +31,13 @@ export class MessagedisplayComponent {
     this.messages$ = this.messageService.getMessages().subscribe(newMessage => {
       this.message = newMessage;
       setTimeout(() => {
-        this.message = null;
+        this.hideMessage();
       }, 8000);
     });
+  }
+
+  hideMessage() {
+    this.message = null;
   }
 
   ngOnDestroy() {

@@ -32,6 +32,7 @@
    max-height: 50vh;
    display: grid;
    grid-template-columns: repeat(3, 1fr);
+   gap: 1.3334rem;
 }
 
 .book-display {
@@ -73,6 +74,7 @@
 
 .book-category {
     margin-left: 1rem;
+    margin-top: auto;
     font-family: 'Lora', serif;
     color: #555;
 }
@@ -80,4 +82,9 @@
 .book-purchase-link {
     font-size: 1.8em;
     color: #222;
+}
+
+.book-tile {
+    display: flex;
+    flex-direction: column;
 }

@@ -7,11 +7,11 @@
         </span>
         <div>
             <a routerLink="edit" class="edit-link horizontal-pad">Edit</a>
-            <a class="delete-button small-left-margin">Delete</a>
+            <a class="delete-button small-left-margin" (click)="showDelete()">Delete</a>
         </div>
     </div>
-    <div *ngIf="book.contributors.length > 0" class="undertitle">
-        By <span *ngFor="let contributor of book.contributors" class="undertitle">{{contributor}}</span>
+    <div *ngIf="book.contributors && book.contributors.length > 0" class="undertitle">
+        By <span class="undertitle">{{book.contributors.join(', ')}}</span>
     </div>
     <div class="small-top-margin">
         <span *ngIf="book.publisher" class="small-text">Published by {{book.publisher}}</span>
@@ -19,7 +19,7 @@
     </div>
     <p *ngIf="book.isbn" class="small-text no-top-margin no-top-padding">ISBN: {{book.isbn}} </p>
     <p *ngIf="book.description" class="description">{{book.description}}</p>
-    <div *ngIf="book.sections.length > 0">
+    <div *ngIf="book.sections && book.sections.length > 0">
         <h4 class="list-header small-bottom-margin">Sections</h4>
         <ol class="no-top-margin">
            <li *ngFor="let section of book.sections" class="list-item">
@@ -27,6 +27,8 @@
            </li> 
         </ol>
     </div>
-    <p *ngIf="book.publicly_accessible" class="small-text text-right no-bottom-margin no-bottom-padding">This book is visible to everyone</p>
-    <p *ngIf="!book.publicly_accessible" class="small-text text-right no-bottom-margin no-bottom-padding">This book is only visible to you</p>
+    <p class="small-text text-right no-bottom-margin no-bottom-padding italic">
+        {{ book.publicly_accessible ? "This book is visible to everyone" : "This book is only visible to you"}}
+    </p>
 </section>
+<app-deletemodal [slug]="book?.slug || ''"></app-deletemodal>

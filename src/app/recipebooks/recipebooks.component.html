@@ -10,12 +10,12 @@
         <input class="form__input search-input search-input-with-category" type="search" placeholder="Search books">
         <select class="form__input search-category-input">
             <option>All Categories</option>
-            <option>French</option>
+            <option *ngFor="let category of this.categories.getBookCategories()">{{category}}</option>
         </select>
     </form>
     <section class="book-results">
         <a *ngFor="let book of books | async" class="book-display" routerLink="{{book.slug}}">
-            <div style="max-width:80%">
+            <div class="book-tile">
                 <h5 class="book-title">{{book.title}}</h5>
                 <p class="book-publisher">{{book.publisher}}</p>
                 <p class="book-category">{{book.category}}</p>

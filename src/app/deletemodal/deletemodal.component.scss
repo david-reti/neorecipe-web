@@ -1,0 +1,30 @@
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background {
+    background-color: black;
+    opacity: 0.6;
+}
+
+.modal-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-text {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    color: #222;
+    max-width: 70%;
+    text-align: center;
+    font-size: 1.1em;
+}

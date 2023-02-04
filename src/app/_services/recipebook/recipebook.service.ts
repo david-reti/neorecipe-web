@@ -24,21 +24,33 @@ export class RecipebookService {
         this.previous = response.previous || "";
       }),
       map(response => response.results),
-      catchError((error, _) => this.handleError(error, _)), 
+      catchError((error, _) => this.handleError(error, 'retrieve books', _)), 
     );
   }
 
   getSingleBook(slug: string) : Observable<RecipeBook> {
     return this.http.get<RecipeBook>(BACKEND_URLS.SINGLE_RECIPE_BOOK.replace('${slug}', slug)).pipe(
-      catchError((error, _) => this.handleError(error, _)),
+      catchError((error, _) => this.handleError(error, 'retrieve book', _)),
     );
   }
 
-  private handleError(error : HttpErrorResponse, caught : Observable<any>): Observable<any> {
+  create(toCreate: RecipeBook) {
+    return this.http.post(BACKEND_URLS.RECIPE_BOOKS, toCreate).pipe(
+      catchError((error, _) => this.handleError(error, 'create book', _)),
+    );
+  }
+
+  delete(toDeleteSlug: string) {
+    return this.http.delete(BACKEND_URLS.SINGLE_RECIPE_BOOK.replace('${slug}', toDeleteSlug)).pipe(
+      catchError((error, _) => this.handleError(error, 'delete book', _)),
+    );
+  }
+
+  private handleError(error : HttpErrorResponse, action: string, caught : Observable<any>): Observable<any> {
     if(error.status === 0) {
-      this.messageService.sendError(`An client-side error (status 0) occured when attempting to get ${error.url}`);
+      this.messageService.sendError(`An client-side error (status 0) occured when attempting to ${action} at ${error.url}`);
     } else {
-      this.messageService.sendError(`Error ${error.status} (${error.statusText}) when attempting to get ${error.url}`);
+      this.messageService.sendError(`Error ${error.status} (${error.statusText}) when attempting to ${action} at ${error.url}`);
     }
     return of();
   }

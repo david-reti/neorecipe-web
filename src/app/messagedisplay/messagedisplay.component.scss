@@ -16,6 +16,10 @@
     }
 }
 
+.message__content {
+    cursor: pointer;
+}
+
 .info {
     background-color: #999;
 }
@@ -26,4 +30,8 @@
 
 .error {
     background-color: #fc2e1c;
+}
+
+.success {
+    background-color: #007d23;
 }

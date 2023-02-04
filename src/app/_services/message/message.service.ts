@@ -27,6 +27,10 @@ export class MessageService {
     this.messages$.next({messageType: 'error', content: message});
   }
 
+  sendSuccess(message: String) {
+    this.messages$.next({messageType: 'success', content: message})
+  }
+
   sendLongError(message: String, longVersion: String) {
     this.messages$.next({messageType: 'error', content: message, longVersion: longVersion});
   }

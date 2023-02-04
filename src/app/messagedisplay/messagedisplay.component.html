@@ -1,5 +1,5 @@
 <div class="message">
-    <p *ngIf="message" [ngClass]="['message__content', message.messageType]" [@messageDisplay]>
+    <p *ngIf="message" [ngClass]="['message__content', message.messageType]" [@messageDisplay] (click)="hideMessage()">
         {{ message.content }}
     </p>
 </div>
