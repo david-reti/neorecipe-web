@@ -13,9 +13,10 @@
     <div *ngIf="book.contributors && book.contributors.length > 0" class="undertitle">
         By <span class="undertitle">{{book.contributors.join(', ')}}</span>
     </div>
-    <div class="small-top-margin">
-        <span *ngIf="book.publisher" class="small-text">Published by {{book.publisher}}</span>
-        <span *ngIf="book.publication_date" class="small-text"> in {{book.publication_date | date: 'y'}}</span>
+    <div *ngIf="book.publisher || book.publication_date" class="small-top-margin small-text no-bottom-margin no-bottom-padding">
+        Published
+        <span *ngIf="book.publisher"> by {{book.publisher}}</span>
+        <span *ngIf="book.publication_date"> in {{book.publication_date | date: 'y'}}</span>
     </div>
     <p *ngIf="book.isbn" class="small-text no-top-margin no-top-padding">ISBN: {{book.isbn}} </p>
     <p *ngIf="book.description" class="description">{{book.description}}</p>

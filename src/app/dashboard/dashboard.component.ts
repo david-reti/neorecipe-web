@@ -32,11 +32,16 @@ export class DashboardComponent {
   getWeek() {
     const date = new Date();
     const leapYearAdjustment = (date.getFullYear() % 4 == 0 && date.getFullYear() % 400 == 0 && date.getFullYear() % 100 != 0 && date.getMonth() == 2) ? 1 : 0;
-    const firstDay = (date.getDate() - date.getDay()) % (DAYS_PER_MONTH[date.getMonth() + leapYearAdjustment]);
+    let firstDay = (date.getDate() - date.getDay()) % (DAYS_PER_MONTH[date.getMonth() + leapYearAdjustment]);
     const lastDay = (firstDay + 7) % DAYS_PER_MONTH[date.getMonth() + leapYearAdjustment];
 
     const firstMonth = MONTH_NAMES[date.getMonth() - (date.getDate() - date.getDay() < 0 ? 1 : 0)];
     const secondMonth = MONTH_NAMES[date.getMonth() + (firstDay + 7 > (DAYS_PER_MONTH[date.getMonth()] + leapYearAdjustment) ? 1 : 0)];
+
+    if(firstDay < 0) {
+      firstDay += DAYS_PER_MONTH[date.getMonth() - 1];
+    }
+
     return `${firstMonth} ${firstDay} - ${secondMonth} ${lastDay}`
   }
 

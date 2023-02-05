@@ -40,6 +40,12 @@ export class RecipebookService {
     );
   }
 
+  update(toUpdate: RecipeBook) {
+    return this.http.put(BACKEND_URLS.SINGLE_RECIPE_BOOK.replace('${slug}', toUpdate.slug), toUpdate).pipe(
+      catchError((error, _) => this.handleError(error, 'update book', _)),
+    );
+  }
+
   delete(toDeleteSlug: string) {
     return this.http.delete(BACKEND_URLS.SINGLE_RECIPE_BOOK.replace('${slug}', toDeleteSlug)).pipe(
       catchError((error, _) => this.handleError(error, 'delete book', _)),

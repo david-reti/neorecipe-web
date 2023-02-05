@@ -1,0 +1,38 @@
+<form [formGroup]="form" (submit)="formAction(form)" class="form--large">
+    <h4 class="section-title no-top-margin">{{title}}</h4>
+    <div class="form__row">
+        <input type="text" formControlName="title" placeholder="Title" class="form__input">
+    </div>
+    <div class="form__row">
+        <input type="text" formControlName="isbn" placeholder="ISBN (Optional)" class="form__input">
+        <input type="text" formControlName="publisher" placeholder="Publisher (Optional)" class="form__input">
+        <div class="column">
+            <label for="publicationDate" class="form__label--light">Publication Date (Optional):</label>
+            <input id="publicationDate" formControlName="publicationDate" type="date" class="form__input">
+        </div>
+    </div>
+    <div class="form__row small-top-margin">
+        <select formControlName="category" class="form__input" [selectedIndex]="initialIndex">
+            <option>Select Category</option>
+            <option>French</option>
+            <option>Other</option>
+        </select>
+    <!-- Authors -->
+    <!-- Style -->
+        <div class="form__row">
+            <div>
+                <label class="form__label--light">Public:</label>
+                <p class="form__description">Public books are only visible to others after being approved.</p>
+            </div>
+            <input formControlName="publiclyAccessible" type="checkbox" class="form__input">
+        </div>
+    </div>
+    <div style="display: flex;">
+        <a routerLink="{{backRoute}}" class="back-link" style="display: inline-block; height: fit-content; margin-top: auto;">Cancel</a>
+        <button [disabled]="form.invalid" type="submit" class="form__submit form__submit__text form__submit--small" style="display: inline-block;">
+            <app-loadingicon *ngIf="this.loading"></app-loadingicon>
+            <p *ngIf="!this.loading">{{action}} Book</p>
+        </button>
+    </div>
+    <app-longerroroutlet></app-longerroroutlet>
+</form>

@@ -29,7 +29,7 @@
         <p *ngIf="this.selectedRecipe.source" class="undertitle">From {{this.selectedRecipe.source}}</p>
         <p class="description">{{this.selectedRecipe.description}}</p>
         <div class="selected-recipe-ingredients">
-            <h5 class="selected-recipe-header">Ingredients</h5>
+            <h5 class="list-header">Ingredients</h5>
             <div class="ingredients-container">
                 <div *ngFor="let ingredient of this.selectedRecipe.ingredients" class="recipe-ingredient">
                     {{ingredient.amount | number: '1.0-2'}} {{ingredient.amount_unit}} {{ingredient.ingredient.name}}{{ingredient.preparation && ", " + ingredient.preparation}}
