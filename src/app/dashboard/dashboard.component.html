@@ -31,7 +31,10 @@
         <div class="selected-recipe-ingredients">
             <h5 class="list-header">Ingredients</h5>
             <div class="ingredients-container">
-                <div *ngFor="let ingredient of this.selectedRecipe.ingredients" class="recipe-ingredient">
+                <div *ngFor="let ingredient of this.selectedRecipe.ingredients" 
+                             class="recipe-ingredient" 
+                             [class.ingredient-completed]="ingredient.completed"
+                             (click)="completeIngredient(ingredient)">
                     {{ingredient.amount | number: '1.0-2'}} {{ingredient.amount_unit}} {{ingredient.ingredient.name}}{{ingredient.preparation && ", " + ingredient.preparation}}
                 </div>
             </div>
@@ -39,7 +42,10 @@
         <div class="selected-recipe-steps">
             <h5 class="list-header">Steps</h5>
             <ol>
-                <li class="list-item" *ngFor="let step of this.selectedRecipe.steps">
+                <li class="list-item"
+                    [class.step-completed]="step.completed"
+                    (click)="completeStep(step)"
+                    *ngFor="let step of this.selectedRecipe.steps">
                     {{ step.description }}
                 </li>
             </ol>

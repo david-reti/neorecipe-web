@@ -195,3 +195,17 @@
     position: relative;
     font-size: 1.1em;
 }
+
+.ingredient-completed {
+    background-color: #007d23;
+    color: white;
+}
+
+.ingredient-completed:hover {
+    background-color: #00b032;
+}
+
+.step-completed {
+    text-decoration: line-through;
+    background-color: #DDD;
+}

@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
 
   attemptLogin(formGroup: FormGroup) {
     this.loading = true;
-    this.authService.login(formGroup.get('username')?.value, formGroup.get('password')?.value);
+    this.authService.login(formGroup.get('username')?.value, formGroup.get('password')?.value).add(() => {
+      this.loading = false;
+    });
   }
 }

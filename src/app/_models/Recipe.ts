@@ -4,6 +4,7 @@ import { RecipeIngredient } from "./Ingredient";
 export interface RecipeStep {
     step_number: number;
     description: string;
+    completed: boolean | null;
 }
 
 export interface Recipe {

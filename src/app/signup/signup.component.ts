@@ -35,6 +35,8 @@ export class SignupComponent {
                             this.form.get('password')?.value, 
                             this.form.get('passwordConfirmation')?.value).subscribe(value => {
                               this.router.navigateByUrl('/activate');
+                            }).add(() => {
+                              this.loading = false;
                             });
   }
 } 

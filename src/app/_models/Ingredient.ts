@@ -11,4 +11,5 @@ export interface RecipeIngredient {
     amount: string;
     amount_unit: string;
     preparation: string;
+    completed: boolean | null;
 }

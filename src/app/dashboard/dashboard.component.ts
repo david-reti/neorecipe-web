@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { first, Observable, Observer, of } from 'rxjs';
-import { Recipe } from '../_models/Recipe';
+import { Recipe, RecipeStep } from '../_models/Recipe';
 import { RecipeService } from '../_services/recipe/recipe.service';
 
 import { faRotate } from '@fortawesome/free-solid-svg-icons';
+import { RecipeIngredient } from '../_models/Ingredient';
+import { CompletedrecipesService } from '../_services/completedrecipes/completedrecipes.service';
 
 const MONTH_NAMES =    ['Jan', 'Feb', 'Mar', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 const DAYS_PER_MONTH = [31,     28,    31,    30,    31,    30,    31,    31,    30,    31,    30,    31];
@@ -18,12 +19,21 @@ export class DashboardComponent {
   selectedRecipe: Recipe | null = null;
   faRotate = faRotate;
 
-  constructor(protected recipeService : RecipeService) {}
+  constructor(protected recipeService : RecipeService, private completed: CompletedrecipesService) {}
 
   ngOnInit() {
     this.recipeService.getRecommendedRecipes().subscribe(recipes => {
-      this.recipes = recipes;
-      if(this.recipes && this.recipes.length > 0) {
+      this.recipes = [];
+      recipes.forEach(recipe => {
+        const completedRecipe = this.completed.loadSelectedRecipe(recipe.slug);
+        if(completedRecipe) {
+          this.recipes?.push(completedRecipe)
+        } else {
+          this.recipes?.push(recipe);
+        }
+      });
+
+      if(this.recipes.length > 0) {
         this.selectedRecipe = this.recipes[0];
       }
     });
@@ -47,6 +57,13 @@ export class DashboardComponent {
 
   refreshRecipes() {
     this.recipeService.regenerateRecommendedRecipes();
+    this.completed.clear();
+  }
+
+  refreshStoredRecipes() {
+    this.recipes?.forEach(recipe => {
+      this.completed.storeSelectdRecipe(recipe);
+    });
   }
 
   preparationTime(time: String) {
@@ -56,5 +73,15 @@ export class DashboardComponent {
       hours = `${numHours} hour${numHours > 1 ? 's' : ''}, `
     }
     return `${hours?hours:''}${time.slice(3, 5)} minutes`;
+  }
+
+  completeIngredient(ingredient: RecipeIngredient) {
+    ingredient.completed = !ingredient.completed;
+    this.refreshStoredRecipes();
+  }
+
+  completeStep(step: RecipeStep) {
+    step.completed = !step.completed;
+    this.refreshStoredRecipes();
   }
 }

@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    this.http.post(BACKEND_URLS.LOGIN, {username: username, password: password}).pipe(
+    return this.http.post(BACKEND_URLS.LOGIN, {username: username, password: password}).pipe(
       catchError((error, _) => this.handleAuthError("signin", error)),
     ).subscribe(body => {
       this.currentlySignedIn = true;
@@ -48,7 +48,7 @@ export class AuthService {
   signup(username: string, email: string, password: string, passwordConfirmation: string) {
     return this.http.post(BACKEND_URLS.SIGNUP, {username: username, email: email, password: password, re_password: passwordConfirmation}).pipe(
       catchError((error, _) => this.handleAuthError("signup", error))
-    )
+    );
   }
 
   private handleAuthError(action: String, error: HttpErrorResponse) : Observable<any> {
