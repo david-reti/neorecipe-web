@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of, map, tap } from 'rxjs';
+import { catchError, Observable, of, map, tap, Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { RecipeBook, RecipeBookData } from '../../_models/RecipeBook';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BACKEND_URLS } from '../../urls';
 import { MessageService } from '../message/message.service';
-import { Recipe } from 'src/app/_models/Recipe';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,31 @@ export class RecipebookService {
   next: String = "";
   previous: String = "";
 
-  constructor(private http:HttpClient, private messageService: MessageService) { }
+  searchCriteria: Subject<{title: string, category: string}> = new Subject<any>();
+  searchResults: Subject<RecipeBook[]> = new Subject<RecipeBook[]>();
+
+  constructor(private http:HttpClient, private messageService: MessageService) { 
+    this.searchCriteria.asObservable().pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+    ).subscribe(term => {
+      let toget = new URL(BACKEND_URLS.RECIPE_BOOKS);
+      if(term.title) { toget.searchParams.append('title', term.title) }
+      if(term.category) { toget.searchParams.append('category', term.category) }
+
+      this.http.get(toget.toString()).pipe(
+        tap((response : any) => {
+          this.numBooks = response.count;
+          this.next = response.next || "";
+          this.previous = response.previous || "";
+        }),
+        map(response => response.results),
+        catchError((error, _) => this.handleError(error, 'search books', _)),
+      ).subscribe(books => {
+        this.searchResults.next(books);
+      });
+    });
+  }
 
   getBooks() : Observable<RecipeBook[]> {
     return this.http.get<RecipeBookData>(BACKEND_URLS.RECIPE_BOOKS).pipe(
@@ -32,6 +55,13 @@ export class RecipebookService {
     return this.http.get<RecipeBook>(BACKEND_URLS.SINGLE_RECIPE_BOOK.replace('${slug}', slug)).pipe(
       catchError((error, _) => this.handleError(error, 'retrieve book', _)),
     );
+  }
+
+  search(title: string, category: string) {
+    this.searchCriteria.next({
+      title: title,
+      category: category
+    });
   }
 
   create(toCreate: RecipeBook) {
