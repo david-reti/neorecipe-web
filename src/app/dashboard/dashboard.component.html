@@ -15,13 +15,7 @@
             <h4 class="dashboard__week-indicator">{{getWeek()}}</h4>
         </div>
         <ul *ngIf="this.recipes" class="dashboard-recipe-list__list">
-            <li *ngFor="let recipe of this.recipes" class="dashboard__recipe-item">
-                <h5 class="dashboard-recipe-list__recipe-title">{{recipe.title}}</h5>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <p class="dashboard-recipe-list__preparation-time">{{preparationTime(recipe.preparation_time)}}</p>
-                    <p *ngIf="recipe.serves" class="dashboard-recipe-list__recipe-serves">Serves {{recipe.serves}}</p>
-                </div>
-            </li>
+            <app-recipetile *ngFor="let recipe of this.recipes" [recipe]="recipe"></app-recipetile>
         </ul>
     </section>
     <section class="dashboard__selected-recipe" *ngIf="this.selectedRecipe">

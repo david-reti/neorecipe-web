@@ -1,1 +1,28 @@
 <app-background></app-background>
+<section class="top-section">
+    <h1 class="section-title white">Recipes</h1>
+    <a class="create-link" routerLink="create">
+        Create
+    </a>
+</section>
+<section class="form--large no-top-margin" style="display:flex; gap: 1rem;">
+    <aside class="categories">
+        <ul class="categories__list">
+           <li *ngFor="let category of RECIPE_CATEGORIES" class="category__item">
+                <input type="checkbox" class="category__input" id="{{category}}">
+                <label class="category__description" for="{{category}}">{{category}}</label>
+           </li>
+        </ul>
+    </aside>
+    <div style="flex-grow: 1">
+        <div style="display:flex">
+            <input  class="form__input search-input"
+                    type="search"
+                    style="display: inline-block"
+                    placeholder="Search Recipes">
+        </div>
+        <div class="recipe__results">
+            <app-recipetile *ngFor="let recipe of searchedRecipes" [recipe]="recipe" [link]="'/recipes/' + recipe.slug"></app-recipetile>
+        </div>
+    </div>
+</section>

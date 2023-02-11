@@ -323,3 +323,13 @@ app-longerroroutlet {
 .italic {
     font-style: italic;
 }
+
+.top-section {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    width: calc(65vw + (1.3334rem * 2));
+    margin-left: 18vw;
+    align-items: center;
+}

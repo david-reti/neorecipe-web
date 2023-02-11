@@ -4,5 +4,6 @@ export const BACKEND_URLS = {
     SIGNUP: 'http://127.0.0.1:8000/auth/users/',
     RECIPE_BOOKS: 'http://127.0.0.1:8000/api/recipe-books',
     SINGLE_RECIPE_BOOK: 'http://127.0.0.1:8000/api/recipe-books/${slug}',
+    RECIPES: 'http://127.0.0.1:8000/api/recipes',
     RECOMMENDED_RECIPES: 'http://127.0.0.1:8000/api/users/${userID}/recommended-recipes',
 }

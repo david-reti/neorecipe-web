@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { RecipeBook } from '../_models/RecipeBook';
 import { RecipebookService } from '../_services/recipebook/recipebook.service';
 

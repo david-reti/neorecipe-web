@@ -1,0 +1,16 @@
+<a *ngIf="link.length > 0" routerLink="{{link}}">
+    <div class="recipe">
+        <h5 class="recipe__title">{{recipe.title}}</h5>
+        <div class="recipe__details">
+            <p class="recipe__details__preparation-time">{{preparationTime(recipe.preparation_time)}}</p>
+            <p *ngIf="recipe.serves" class="recipe__details__serves">Serves {{recipe.serves}}</p>
+        </div>
+    </div>
+</a>
+<div *ngIf="link.length == 0" class="recipe">
+    <h5 class="recipe__title">{{recipe.title}}</h5>
+    <div class="recipe__details">
+        <p class="recipe__details__preparation-time">{{preparationTime(recipe.preparation_time)}}</p>
+        <p *ngIf="recipe.serves" class="recipe__details__serves">Serves {{recipe.serves}}</p>
+    </div>
+</div>

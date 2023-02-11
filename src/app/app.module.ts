@@ -33,6 +33,8 @@ import { BookComponent } from './book/book.component';
 import { DeletemodalComponent } from './deletemodal/deletemodal.component';
 import { BookformComponent } from './bookform/bookform.component';
 import { BookeditComponent } from './bookedit/bookedit.component';
+import { RecipetileComponent } from './recipetile/recipetile.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { BookeditComponent } from './bookedit/bookedit.component';
     BookComponent,
     DeletemodalComponent,
     BookformComponent,
-    BookeditComponent
+    BookeditComponent,
+    RecipetileComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,

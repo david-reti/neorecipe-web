@@ -44,45 +44,11 @@
     justify-content: space-between;
 }
 
-.dashboard__recipe-item {
-    border-radius: 1rem;
-    padding: 0.8rem;
-    margin-bottom: 0.75rem;
-    cursor: pointer;
-    background-image: linear-gradient(to top right, #d2f7dc, #f0d5d5);
-}
-
 .dashboard-recipe-list__list {
     list-style: none;
     padding-left: 0;
     padding-right: 0;
     margin: 0;
-}
-
-.dashboard-recipe-list__recipe-title {
-    font-family: 'Lora', serif;
-    color: #333;
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-top: 0;
-}
-
-.dashboard-recipe-list__recipe-serves {
-    margin-bottom: 0;
-    margin-top: 0;
-    text-align: right;
-    font-style: italic;
-    font-family: 'Lora', serif;
-    color: #333;
-    font-size: 0.85em;
-}
-
-.dashboard-recipe-list__preparation-time {
-    margin-bottom: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: #555;
-    font-size: 1.2em;
-    margin-top: 0;
 }
 
 .dashboard__selected-recipe {

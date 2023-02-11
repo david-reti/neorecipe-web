@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, of, Subject } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, map, of, Subject } from 'rxjs';
 import { Recipe } from 'src/app/_models/Recipe';
 import { BACKEND_URLS } from 'src/app/urls';
 import { AuthService } from '../auth/auth.service';
@@ -14,7 +14,26 @@ export class RecipeService {
   recommendedRecipes: Recipe[] = [];
   recommendedRecipes$: Subject<Recipe[]> = new Subject();
 
-  constructor(private http: HttpClient, private messageService: MessageService, private auth: AuthService) { }
+  searchTerms: Subject<string> = new Subject<string>();
+  searchResults: Subject<Recipe[]> = new Subject<Recipe[]>();
+
+  constructor(private http: HttpClient, private messageService: MessageService, private auth: AuthService) { 
+    this.searchTerms.asObservable().pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+    ).subscribe(term => {
+      this.http.get(BACKEND_URLS.RECIPES).pipe(
+        map((recipes : any) => recipes.results),
+        catchError(err => {
+          this.messageService.sendError("Could not retrieve recipes");
+          return of();
+        })
+      ).subscribe((recipes : any) => {
+        this.searchResults.next(recipes);
+      });
+    });
+    this.search('');
+  }
 
   getRecommendedRecipes() {
     if(this.recommendedRecipes.length === 0) {
@@ -30,6 +49,14 @@ export class RecipeService {
       });
     }
     return this.recommendedRecipes$.asObservable();
+  }
+
+  search(term: string) {
+    this.searchTerms.next(term);
+  }
+
+  getResults() {
+    return this.searchResults.asObservable();
   }
 
   regenerateRecommendedRecipes() {

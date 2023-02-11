@@ -24,9 +24,6 @@
     text-align: center;
 }
 
-.search-category-input option {
-}
-
 .book-results {
    margin-top: 2rem;
    max-height: 50vh;
@@ -52,16 +49,6 @@
     margin-left: 0.8em;
     font-weight: 700;
     margin-bottom: 0.1em;
-}
-
-.top-section {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    width: calc(65vw + (1.3334rem * 2));
-    margin-left: 18vw;
-    align-items: center;
 }
 
 .book-publisher {

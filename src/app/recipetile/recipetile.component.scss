@@ -1,0 +1,39 @@
+.recipe {
+    border-radius: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    background-image: linear-gradient(to top right, #d2f7dc, #f0d5d5);
+}
+
+.recipe__title {
+    font-family: 'Lora', serif;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.recipe__details {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center
+}
+
+.recipe__details__preparation-time {
+    margin-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+.recipe__details__serves {
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: right;
+    font-style: italic;
+    font-family: 'Lora', serif;
+    color: #333;
+    font-size: 0.85em;
+}
