@@ -5,7 +5,6 @@
 .dashboard__recipe-list {
     display: flex;
     padding: 0.75rem;
-    width: 25%;
     flex-direction: column;
     background-color: white;
     position: relative;
@@ -16,10 +15,6 @@
     padding-bottom: 0;
     height: fit-content;
     max-height: 78vh;
-}
-
-.dashboard-recipe-list__title {
-
 }
 
 .dashboard__week-indicator {
@@ -34,6 +29,7 @@
 }
 
 .dashboard__title {
+    width: max-content;
     font-family: 'Lora', serif;
     font-size: 2em;
     color: #222;
@@ -51,64 +47,11 @@
     margin: 0;
 }
 
-.dashboard__selected-recipe {
-    position: relative;
-    z-index: 10;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    border-radius: 1rem;
-    padding: 0.75rem;
-    padding-left: 2.4rem;
-    padding-right: 2.4rem;
-    margin-top: 0.75rem;
-    margin-left: 1.4rem;
-    max-width: 60%;
-    max-height: 78vh;
-    overflow-y: auto;
-}
-
-.recipe-title {
-    font-family: 'Lora', serif;
-    font-size: 2em;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5em;
-}
-
-.recipe-ingredient {
-    text-transform: capitalize;
-    border-radius: 1rem;
-    background-color: #DDD;
-    width: fit-content;
-    padding: 0.5em;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85em;
-    font-weight: 400;
-    margin: 0.3em;
-    transition: background-color 0.2s;
-}
-
-.recipe-ingredient:hover {
-    cursor: pointer;
-    background-color: #EEE;
-}
-
-.ingredients-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.list-item:hover {
-    background-color: #DDD;
-    box-shadow: 0.2em 0.2em 0.1em #BBB inset;
-    cursor: pointer;
-}
-
 .dashboard__refresh-recipes {
     border: none;
     background: transparent;
     position: relative;
+    margin-left: 6rem;
 }
 
 .dashboard__refresh-recipes fa-icon {
@@ -132,46 +75,4 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.dashboard__refresh-tooltip {
-    display: none;
-    position: absolute;
-    top: -0.8rem;
-    left: 2.5rem;
-    z-index: 12;
-    border-radius: 1rem;
-    width: max-content;
-    padding: 0.8rem;
-}
-
-.tooltip-background {
-    position: absolute;
-    background-color: black;
-    opacity: 0.7;
-    width: 100%;
-    height: 100%;
-    filter: blur(0.8rem);
-}
-
-.tooltip-text {
-    font-family: 'Lora', serif;
-    color: white;
-    z-index: 13;
-    position: relative;
-    font-size: 1.1em;
-}
-
-.ingredient-completed {
-    background-color: #007d23;
-    color: white;
-}
-
-.ingredient-completed:hover {
-    background-color: #00b032;
-}
-
-.step-completed {
-    text-decoration: line-through;
-    background-color: #DDD;
 }

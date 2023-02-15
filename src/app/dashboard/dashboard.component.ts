@@ -66,15 +66,6 @@ export class DashboardComponent {
     });
   }
 
-  preparationTime(time: String) {
-    let hours = "";
-    const numHours = parseInt(time.slice(0, 2));
-    if(numHours > 0) {
-      hours = `${numHours} hour${numHours > 1 ? 's' : ''}, `
-    }
-    return `${hours?hours:''}${time.slice(3, 5)} minutes`;
-  }
-
   completeIngredient(ingredient: RecipeIngredient) {
     ingredient.completed = !ingredient.completed;
     this.refreshStoredRecipes();

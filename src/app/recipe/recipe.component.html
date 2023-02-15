@@ -1,1 +1,35 @@
 <app-background></app-background>
+<section class="recipe" [class.centered]="this.slug" *ngIf="recipe">
+    <div class="header-row">
+        <h4 class="recipe__title">{{recipe.title}}</h4>
+        <div class="links" *ngIf="this.slug">
+            <a routerLink="edit" class="edit-link horizontal-pad">Edit</a>
+            <a class="delete-button small-left-margin" (click)="showDelete()">Delete</a>
+        </div>
+    </div>
+    <p *ngIf="recipe.source" class="undertitle">From {{recipe.source}}</p>
+    <p class="description">{{recipe.description}}</p>
+    <div class="recipe__ingredients">
+        <h5 class="list-header">Ingredients</h5>
+        <div class="ingredients-container">
+            <div *ngFor="let ingredient of recipe.ingredients" 
+                         class="recipe__ingredient" 
+                         [class.ingredient-completed]="ingredient.completed"
+                         (click)="completeIngredient(ingredient)">
+                {{ingredient.amount | number: '1.0-2'}} {{ingredient.amount_unit}} {{ingredient.ingredient.name}}{{ingredient.preparation && ", " + ingredient.preparation}}
+            </div>
+        </div>
+    </div>
+    <div class="selected-recipe-steps">
+        <h5 class="list-header">Steps</h5>
+        <ol>
+            <li class="list-item"
+                [class.step-completed]="step.completed"
+                (click)="completeStep(step)"
+                *ngFor="let step of recipe.steps">
+                {{ step.description }}
+            </li>
+        </ol>
+    </div>
+</section>
+<app-deletemodal [slug]="slug" forType="recipe"></app-deletemodal>

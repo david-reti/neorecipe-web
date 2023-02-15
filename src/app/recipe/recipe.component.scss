@@ -1,0 +1,80 @@
+.recipe {
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 0.75rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    margin-left: 1.4rem;
+    margin-right: 6rem;
+    max-width: 28cm;
+    overflow-y: auto;
+}
+
+.recipe__title {
+    font-family: 'Lora', serif;
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    width: fit-content;
+}
+
+.recipe__ingredient {
+    text-transform: capitalize;
+    border-radius: 1rem;
+    background-color: #DDD;
+    width: fit-content;
+    padding: 0.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85em;
+    font-weight: 400;
+    margin: 0.3em;
+    transition: background-color 0.2s;
+}
+
+.recipe__ingredient:hover {
+    cursor: pointer;
+    background-color: #EEE;
+}
+
+.ingredients-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-item:hover {
+    background-color: #DDD;
+    box-shadow: 0.2em 0.2em 0.1em #BBB inset;
+    cursor: pointer;
+}
+
+.ingredient-completed {
+    background-color: #007d23;
+    color: white;
+}
+
+.ingredient-completed:hover {
+    background-color: #00b032;
+}
+
+.step-completed {
+    text-decoration: line-through;
+    background-color: #DDD;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.links {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}

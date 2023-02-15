@@ -20,7 +20,6 @@ export class RecipeService {
   constructor(private http: HttpClient, private messageService: MessageService, private auth: AuthService) { 
     this.searchTerms.asObservable().pipe(
       debounceTime(300),
-      distinctUntilChanged(),
     ).subscribe(term => {
       this.http.get(BACKEND_URLS.RECIPES).pipe(
         map((recipes : any) => recipes.results),
@@ -32,7 +31,6 @@ export class RecipeService {
         this.searchResults.next(recipes);
       });
     });
-    this.search('');
   }
 
   getRecommendedRecipes() {
@@ -57,6 +55,17 @@ export class RecipeService {
 
   getResults() {
     return this.searchResults.asObservable();
+  }
+
+  getSingleRecipe(slug: string) {
+    return this.http.get(BACKEND_URLS.SINGLE_RECIPE.replace('${slug}', slug)).pipe(
+      catchError(err => {
+        if(err.error) {
+          this.messageService.sendError(`Could not fetch recipe: ${slug}`);
+        }
+        return of();
+      })
+    );
   }
 
   regenerateRecommendedRecipes() {

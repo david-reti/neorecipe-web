@@ -23,5 +23,6 @@ export class RecipesComponent {
     this.recipes.getResults().subscribe(recipes => {
       this.searchedRecipes = recipes;
     });
+    this.recipes.search('');
   }
 }

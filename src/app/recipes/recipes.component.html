@@ -24,5 +24,6 @@
         <div class="recipe__results">
             <app-recipetile *ngFor="let recipe of searchedRecipes" [recipe]="recipe" [link]="'/recipes/' + recipe.slug"></app-recipetile>
         </div>
+        <p *ngIf="!searchedRecipes || searchedRecipes.length === 0" class="description">No results match the current search query</p>
     </div>
 </section>

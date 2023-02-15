@@ -3,7 +3,7 @@
     <div class="form--small modal-form">
         <h1 class="form__title" style="margin-bottom: 0.2em;">Confirm Deletion</h1>
         <div style="display: flex; justify-content: center; width: 100%;">
-            <p class="modal-text">This operation is permanent. Are you sure you want to delete this book?</p>
+            <p class="modal-text">This operation is permanent. Are you sure you want to delete this {{forType}}?</p>
         </div>
         <div class="form__row">
             <a (click)="attemptDeletion()" class="delete-button" style="text-align: center;">Delete</a>

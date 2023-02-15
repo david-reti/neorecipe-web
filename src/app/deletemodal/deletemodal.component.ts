@@ -10,6 +10,8 @@ import { RecipebookService } from '../_services/recipebook/recipebook.service';
 })
 export class DeletemodalComponent {
   open = false;
+
+  @Input() forType: string = "book"
   @Input() slug: string = "";
 
   constructor(private router: Router, private recipeBooks: RecipebookService) {}
@@ -23,8 +25,14 @@ export class DeletemodalComponent {
   }
 
   attemptDeletion() {
-    this.recipeBooks.delete(this.slug).subscribe(() => {
-      this.router.navigateByUrl('/books');
-    });
+    switch(this.forType) {
+      case "book":
+        this.recipeBooks.delete(this.slug).subscribe(() => {
+          this.router.navigateByUrl('/books');
+        });
+        break;
+      default:
+        break;
+    }
   }
 }
