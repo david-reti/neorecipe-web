@@ -28,6 +28,7 @@ export class RecipeComponent {
     if(this.slug) {
       this.recipes.getSingleRecipe(this.slug).subscribe((recipe : any) => {
         this.recipe = recipe;
+        document.title = `Neorecipe | ${this.recipe?.title}`
       })
     }
   }

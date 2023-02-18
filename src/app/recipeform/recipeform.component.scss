@@ -1,0 +1,33 @@
+.form-ingredient {
+    border: 0.1rem solid rgb(17, 17, 17);
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.left {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-right-width: 0;
+}
+
+.middle {
+    border-left-width: 0.1rem;
+    border-right-width: 0.1rem;
+}
+
+.right {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-left-width: 0;
+}
+
+.delete-button {
+    flex-grow: 0;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    color: #fc2e1c;
+    font-size: 1.6rem;
+    padding: 0;
+    margin-left: 1rem;
+}

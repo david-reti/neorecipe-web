@@ -35,6 +35,9 @@ import { BookformComponent } from './bookform/bookform.component';
 import { BookeditComponent } from './bookedit/bookedit.component';
 import { RecipetileComponent } from './recipetile/recipetile.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { RecipeformComponent } from './recipeform/recipeform.component';
+import { RecipecreateComponent } from './recipecreate/recipecreate.component';
+import { RecipeeditComponent } from './recipeedit/recipeedit.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { RecipeComponent } from './recipe/recipe.component';
     BookformComponent,
     BookeditComponent,
     RecipetileComponent,
-    RecipeComponent
+    RecipeComponent,
+    RecipeformComponent,
+    RecipecreateComponent,
+    RecipeeditComponent
   ],
   imports: [
     BrowserModule,

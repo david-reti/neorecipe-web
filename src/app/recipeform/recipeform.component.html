@@ -1,0 +1,67 @@
+<form [formGroup]="form" (submit)="formAction(form)" class="form--large">
+    <h4 class="section-title" style="margin-bottom:2.5rem;">{{title}}</h4>
+    <div class="form__row">
+        <input type="text" placeholder="Title" class="form__input" formControlName="title" [value]="this.selected?.title">
+    </div>
+    <div class="form__row" style="margin-top: 0.8rem">
+        <textarea style="min-height: 8rem; font-size: 0.9rem;" placeholder="Description" class="form__input" formControlName="description" [value]="this.selected?.description"></textarea>
+    </div>
+    <h5 class="list-header">Ingredients</h5>
+    <ul style="padding-left: 0">
+        <li *ngFor="let ingredient of selected?.ingredients" class="form__row" style="gap: 0; margin-top: 0.5rem;">
+            <input placeholder="Ingredient" type="text" class="form-ingredient left" value="{{ingredient.ingredient.name}}">
+            <input placeholder="Amount" type="number" min="0" class="form-ingredient middle" value="{{ingredient.amount}}">
+            <select class="form-ingredient right" [value]="pluralize(ingredient.amount_unit)">
+                <option>Select Unit</option>
+                <option>Teaspoons</option>
+                <option>Tablespoons</option>
+                <option>Cups</option>
+                <option>Ounces</option>
+                <option>Whole</option>
+            </select>
+            <button class="delete-button">
+                <fa-icon [icon]="faXMarkSquare"></fa-icon>
+            </button>
+        </li>
+        <li class="form__row" style="gap: 0; margin-top: 0.5rem">
+            <input placeholder="Ingredient" type="text" class="form-ingredient left">
+            <input placeholder="Amount" type="number" min="0" class="form-ingredient middle">
+            <select class="form-ingredient right">
+                <option>Select Unit</option>
+                <option>Grams</option>
+                <option>Teaspoons</option>
+                <option>Tablespoons</option>
+            </select>
+            <button class="delete-button">
+                <fa-icon [icon]="faXMarkSquare"></fa-icon>
+            </button>
+        </li>
+    </ul>
+    <h5 class="list-header">Steps</h5>
+    <ol>
+        <li class="list-item no-bottom-margin" *ngFor="let step of selected?.steps">
+            <div class="form__row">
+                <input type="text" placeholder="Step Description"  class="form__input" style="padding: 0.5rem; padding-left: 1rem" value="{{step.description}}">
+                <button class="delete-button">
+                    <fa-icon [icon]="faXMarkSquare"></fa-icon>
+                </button>
+            </div>
+        </li>
+        <li class="list-item">
+            <div class="form__row">
+                <input type="text" placeholder="Step Description"  class="form__input" style="padding: 0.5rem; padding-left: 1rem">
+                <button class="delete-button">
+                    <fa-icon [icon]="faXMarkSquare"></fa-icon>
+                </button>
+            </div>
+        </li>
+    </ol>
+    <div style="display: flex;">
+        <a routerLink="{{backRoute}}" class="back-link" style="display: inline-block; height: fit-content; margin-top: auto;">Cancel</a>
+        <button [disabled]="form.invalid" type="submit" class="form__submit form__submit__text form__submit--small" style="display: inline-block;">
+            <app-loadingicon *ngIf="this.loading"></app-loadingicon>
+            <p *ngIf="!this.loading">{{action}} Recipe</p>
+        </button>
+    </div>
+    <app-longerroroutlet></app-longerroroutlet>
+</form>
