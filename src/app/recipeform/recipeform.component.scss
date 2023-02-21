@@ -21,13 +21,56 @@
     border-left-width: 0;
 }
 
+.step {
+    gap: 0;
+}
+
+.step input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+}
+
+.add-item {
+    list-style: none;
+}
+
+.add-button {
+    border-radius: 1rem;
+    padding: 0.8rem;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    background-color: #ffb400;
+    color: white;
+    font-weight: 700;
+}
+
+.add-button:hover {
+    background-color: #ffc333;
+}
+
 .delete-button {
     flex-grow: 0;
     margin: auto;
-    background-color: transparent;
+    border-radius: 0;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     border: none;
     color: #fc2e1c;
-    font-size: 1.6rem;
-    padding: 0;
-    margin-left: 1rem;
+    padding: 0.6rem;
+    padding-left: 0.8rem;
+    padding-right: 1rem;
+}
+
+.delete-button > * {
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+}
+
+.recipe-message {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 200;
 }
